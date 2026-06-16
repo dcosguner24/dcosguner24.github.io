@@ -8,10 +8,8 @@
   <meta name="author"    content="Colin Kelly-Cook" />
   <meta name="designer"  content="Novalogix — https://novalogix.au" />
   <meta name="generator" content="Novalogix Static Template — https://novalogix.au" />
-
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%233B82F6' font-family='system-ui' font-weight='800' font-size='20'%3ED%3C/text%3E%3C/svg%3E" />
   <link rel="canonical" href="https://dcosguner24.github.io/" />
-
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://dcosguner24.github.io/" />
   <meta property="og:title"       content="Derin Coşguner — Mechanical Engineer" />
@@ -20,9 +18,7 @@
   <meta name="twitter:card"        content="summary" />
   <meta name="twitter:title"       content="Derin Coşguner — Mechanical Engineer" />
   <meta name="twitter:description" content="Mechanical Engineering student at MSU. R&D Cooling Intern at BSH Home Appliances. Co-Founder of GreenRoomeo." />
-
   <title>Derin Coşguner — Mechanical Engineer</title>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,18 +37,21 @@
     "creator": { "@type": "Organization", "name": "Novalogix", "url": "https://novalogix.au" }
   }
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!--
-  Built with Novalogix Static Template
-  https://novalogix.au | colin@novalogix.au
-  Colin Kelly-Cook
--->
+
+  <!-- ═══ CERT LIGHTBOX ═══ -->
+  <div class="cert-lightbox" id="cert-lightbox">
+    <div class="cert-lightbox-overlay" id="cert-lightbox-overlay"></div>
+    <div class="cert-lightbox-inner">
+      <button class="cert-lightbox-close" id="cert-lightbox-close">✕</button>
+      <img src="" alt="Certificate" class="cert-lightbox-img" id="cert-lightbox-img" />
+    </div>
+  </div>
 
   <!-- ═══ NAVBAR ═══ -->
   <nav id="navbar">
@@ -134,43 +133,36 @@
       <p class="section-label reveal">What I Do</p>
       <h2 class="section-heading reveal">Areas of Expertise</h2>
       <div class="expertise-grid">
-
         <div class="expertise-card reveal">
           <span class="card-num">01</span>
           <h3 class="card-title">Product Development</h3>
           <p class="card-desc">End-to-end product lifecycle experience — from concept ideation and design evaluation to manufacturing assessment and launch. Informed by hands-on R&amp;D at BSH Home Appliances.</p>
         </div>
-
         <div class="expertise-card reveal">
           <span class="card-num">02</span>
           <h3 class="card-title">Thermal &amp; Fluid Systems</h3>
           <p class="card-desc">Applied thermodynamics and heat transfer analysis in refrigeration and cooling system design. Supporting product performance, energy efficiency, and reliability. Experienced with Simcenter, Ansys, and CFD methodologies.</p>
         </div>
-
         <div class="expertise-card reveal">
           <span class="card-num">03</span>
           <h3 class="card-title">Engineering Analysis</h3>
           <p class="card-desc">Competitive benchmarking, performance evaluation, and data-driven decision-making. Translating complex engineering trade-offs into clear, actionable product insights.</p>
         </div>
-
         <div class="expertise-card reveal">
           <span class="card-num">04</span>
           <h3 class="card-title">Manufacturing Engineering</h3>
           <p class="card-desc">Design for manufacturability assessments and process optimisation for consumer appliance lines. Balancing performance, cost, and production feasibility at scale.</p>
         </div>
-
         <div class="expertise-card reveal">
           <span class="card-num">05</span>
           <h3 class="card-title">Technical Computing</h3>
           <p class="card-desc">CAD modelling with Siemens NX and Autodesk Fusion 360, 3D drawing and blueprint reading, programming in Python, Java, and JavaScript using PyCharm and VS Code, and documentation with Microsoft Office Suite and Google Workspace.</p>
         </div>
-
         <div class="expertise-card reveal">
           <span class="card-num">06</span>
           <h3 class="card-title">Entrepreneurship</h3>
           <p class="card-desc">Co-founded GreenRoomeo — a student housing platform built from zero. Experience in product strategy, user research, and building technology that solves real problems at scale.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -180,11 +172,11 @@
     <div class="container">
       <p class="section-label reveal">Selected Work</p>
       <h2 class="section-heading reveal">Projects</h2>
-
       <div class="filter-row reveal">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="product">Product</button>
-        <button class="filter-btn" data-filter="engineering">Engineering</button>
+        <button class="filter-btn" data-filter="engineering">Internship</button>
+        <button class="filter-btn" data-filter="community">Community</button>
       </div>
 
       <!-- Featured — GreenRoomeo -->
@@ -218,87 +210,74 @@
         </div>
       </div>
 
-      <!-- Grid -->
-      <div class="projects-grid">
-
-        <!-- BSH Card — real orange logo -->
-        <div class="project-card reveal" data-category="engineering">
-          <div class="pc-visual bsh-visual">
-            <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg" class="bsh-logo">
+      <!-- Featured — BSH -->
+      <div class="project-featured reveal" data-category="engineering">
+        <div class="pf-visual bsh-visual-feat">
+          <div class="bsh-feat-inner">
+            <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg" class="bsh-feat-logo">
               <rect x="10" y="10" width="200" height="80" rx="6" fill="#E8472A"/>
-              <text
-                x="110" y="68"
-                font-family="Arial Black, Arial, sans-serif"
-                font-size="48" font-weight="900"
-                fill="#000000" text-anchor="middle"
-                letter-spacing="2">B/S/H/</text>
+              <text x="110" y="68" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="2">B/S/H/</text>
             </svg>
-            <p class="bsh-sub">Home Appliances Group</p>
-          </div>
-          <div class="pc-info">
-            <div class="pmeta">
-              <span class="ptag ptag-eng">Engineering</span>
-              <span class="pyear">2026</span>
-            </div>
-            <h3 class="pc-title">Mechanical Engineering Intern</h3>
-            <p class="pc-cat">R&amp;D · BSH Home Appliances</p>
-            <p class="pc-desc">Competitive benchmarking and engineering analysis of refrigeration systems supporting product architecture decisions and performance optimisation at BSH Home Appliances.</p>
+            <p class="bsh-feat-sub">Home Appliances Group</p>
           </div>
         </div>
-
-<!-- Fusion 360 Card -->
-<div class="project-card reveal" data-category="engineering">
-  <div class="pc-visual fusion-visual">
-    <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="fusion-logo">
-      <text x="18" y="32"
-        font-family="Arial, sans-serif"
-        font-size="13" font-weight="700"
-        fill="#FF6A00" letter-spacing="2">AUTODESK</text>
-      <text x="18" y="62"
-        font-family="Arial, sans-serif"
-        font-size="26" font-weight="800"
-        fill="#FF8C42" letter-spacing="0.5">Fusion 360</text>
-    </svg>
-  </div>
-  <div class="pc-info">
-    <div class="pmeta">
-      <span class="ptag ptag-eng">Engineering</span>
-      <span class="pyear">2024</span>
-    </div>
-    <h3 class="pc-title">Autodesk Fusion 360</h3>
-    <p class="pc-cat">CAD · 3D Modelling · Product Design</p>
-    <p class="pc-desc">3D modelling and product design using Autodesk Fusion 360 — applied to mechanical engineering coursework, rapid prototyping, and design for manufacturability assessments.</p>
-  </div>
-</div>
-
-
-        <!-- Siemens NX Card -->
-        <div class="project-card reveal" data-category="engineering">
-          <div class="pc-visual siemens-visual">
-            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="siemens-logo">
-              <text x="18" y="44"
-                font-family="Arial, sans-serif"
-                font-size="28" font-weight="700"
-                fill="#00BEDC" letter-spacing="1">Siemens</text>
-              <rect x="18" y="52" width="42" height="14" rx="3" fill="#00BEDC" opacity="0.15"/>
-              <text x="22" y="63"
-                font-family="Arial, sans-serif"
-                font-size="11" font-weight="800"
-                fill="#00BEDC" letter-spacing="2">NX</text>
-            </svg>
+        <div class="pf-info">
+          <div class="pmeta">
+            <span class="ptag ptag-intern">Internship</span>
+            <span class="pyear">2026</span>
           </div>
-          <div class="pc-info">
-            <div class="pmeta">
-              <span class="ptag ptag-eng">Engineering</span>
-              <span class="pyear">2026</span>
-            </div>
-            <h3 class="pc-title">Siemens NX</h3>
-            <p class="pc-cat">CAD · 3D Modelling · Product Design</p>
-            <p class="pc-desc">3D modelling, drawing, and product design using Siemens NX — applied to mechanical engineering coursework and design for manufacturability assessments for consumer appliance product lines.</p>
+          <h3 class="pf-title">R&amp;D Cooling Internship</h3>
+          <p class="pf-sub">BSH Home Appliances · East Lansing, MI</p>
+          <p class="pf-desc">Competitive benchmarking and engineering analysis of refrigeration systems — supporting product architecture decisions, performance optimisation, and manufacturing assessments at BSH Home Appliances.</p>
+          <div class="ptech ptech-green">
+            <span>Simcenter</span>
+            <span>Computational Fluid Dynamics (CFD)</span>
+            <span>Mechanical Analysis</span>
+            <span>Refrigeration Systems Fundamentals</span>
+            <span>Public Speaking</span>
+            <span>Ansys</span>
+            <span>Market Research</span>
+            <span>Research and Development (R&amp;D)</span>
+            <span>Siemens NX</span>
           </div>
         </div>
-
       </div>
+
+      <!-- Featured — Earthquake Relief -->
+      <div class="project-featured reveal" data-category="community">
+        <div class="pf-visual tpf-visual">
+          <div class="tpf-inner">
+            <div class="tpf-amount">$4,651</div>
+            <div class="tpf-bar-wrap">
+              <div class="tpf-bar"><div class="tpf-bar-fill"></div></div>
+              <span class="tpf-bar-label">62% of $7,500 goal</span>
+            </div>
+            <p class="tpf-org">Turkish Philanthropy Funds</p>
+            <p class="tpf-sub">Kahramanmaraş Earthquake Relief · 2023</p>
+          </div>
+        </div>
+        <div class="pf-info">
+          <div class="pmeta">
+            <span class="ptag ptag-community">Community</span>
+            <span class="pyear">2023</span>
+          </div>
+          <h3 class="pf-title">Earthquake Relief Fundraiser</h3>
+          <p class="pf-sub">Turkish American Students of Okemos High School</p>
+          <p class="pf-desc">Co-organised a 3-month humanitarian fundraising campaign through Turkish Philanthropy Funds — raising $4,651 for victims of the Kahramanmaraş earthquakes in Türkiye. Designed the campaign flyer and QR donation system, led school and community outreach, and partnered with Afet Platformu to ensure funds reached first responders and survivors.</p>
+          <div class="ptech ptech-red">
+            <span>Fundraising</span>
+            <span>Flyer Design</span>
+            <span>QR Donation System</span>
+            <span>Community Outreach</span>
+            <span>Humanitarian Relief</span>
+            <span>Afet Platformu</span>
+          </div>
+          <div class="pactions">
+            <a href="https://donate.tpfund.org/team/481631" target="_blank" rel="noopener" class="paction paction-red">View Fundraiser Page →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -307,7 +286,6 @@
     <div class="container">
       <p class="section-label reveal">Career</p>
       <h2 class="section-heading reveal">Experience</h2>
-
       <div class="tl-filters reveal">
         <button class="tl-filter-btn active" data-tl-filter="all">All</button>
         <button class="tl-filter-btn" data-tl-filter="work">💼 Work</button>
@@ -315,7 +293,6 @@
         <button class="tl-filter-btn" data-tl-filter="certification">🏆 Certification</button>
         <button class="tl-filter-btn" data-tl-filter="volunteering">🤝 Volunteering</button>
       </div>
-
       <div class="exp-stats reveal">
         <div class="exp-stat">
           <span class="es-val">2+</span>
@@ -330,12 +307,12 @@
           <span class="es-lbl">Startup Co-Founded</span>
         </div>
       </div>
-
       <div class="timeline">
 
         <div class="tl-item reveal" data-type="work">
           <div class="tl-dot"></div>
           <div class="tl-card">
+            <span class="tl-work">💼 Work</span>
             <span class="tl-date">2026 — Present</span>
             <h3 class="tl-title">R&amp;D Cooling Intern</h3>
             <p class="tl-company">BSH Home Appliances · East Lansing, MI</p>
@@ -352,6 +329,7 @@
         <div class="tl-item reveal" data-type="work">
           <div class="tl-dot"></div>
           <div class="tl-card">
+            <span class="tl-work">💼 Work</span>
             <span class="tl-date">2026 — Present</span>
             <h3 class="tl-title">Co-Founder</h3>
             <p class="tl-company">GreenRoomeo</p>
@@ -359,6 +337,21 @@
             <div class="tl-tags">
               <span>Entrepreneurship</span><span>Product Strategy</span>
               <span>UX Design</span><span>Market Research</span><span>Web Development</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" data-type="certification">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-cert">🏆 Certification</span>
+            <span class="tl-date">June 2026</span>
+            <h3 class="tl-title">Certificate of Recognition</h3>
+            <p class="tl-company">WORLDDEF · Istanbul, Türkiye</p>
+            <p class="tl-desc">Recognised for participation and engagement at WORLDDEF Istanbul 2026 — one of the world's leading global e-commerce gatherings, bringing together innovators, entrepreneurs, and industry leaders from 11–13 June 2026.</p>
+            <div class="tl-tags">
+              <span>E-Commerce</span><span>Entrepreneurship</span>
+              <span>Networking</span><span>Global Conference</span><span>Innovation</span>
             </div>
           </div>
         </div>
@@ -381,6 +374,7 @@
         <div class="tl-item reveal" data-type="work">
           <div class="tl-dot"></div>
           <div class="tl-card">
+            <span class="tl-work">💼 Work</span>
             <span class="tl-date">March 2025 — Present</span>
             <h3 class="tl-title">In-Store Shopper</h3>
             <p class="tl-company">Whole Foods Market · East Lansing, MI</p>
@@ -410,6 +404,7 @@
         <div class="tl-item reveal" data-type="work">
           <div class="tl-dot"></div>
           <div class="tl-card">
+            <span class="tl-work">💼 Work</span>
             <span class="tl-date">2023 — 2025</span>
             <h3 class="tl-title">Athlete Committee Member</h3>
             <p class="tl-company">Mid Michigan Aquatics · Lansing, MI</p>
@@ -426,11 +421,14 @@
             <span class="tl-vol">🤝 Volunteering</span>
             <span class="tl-date">February 2023 — April 2023</span>
             <h3 class="tl-title">Earthquake Relief Fundraiser</h3>
-            <p class="tl-company">Turkish Philanthropy Funds</p>
-            <p class="tl-desc">Opened a fundraising page through Turkish Philanthropy Funds (TPF) to organise a 3-month fundraising campaign supporting victims of the Kahramanmaraş earthquakes in Türkiye. Coordinated disaster and humanitarian relief efforts and raised awareness across the community.</p>
+            <p class="tl-company">Turkish Philanthropy Funds · Okemos High School</p>
+            <p class="tl-desc">Co-organised a 3-month fundraising campaign through Turkish Philanthropy Funds (TPF) supporting victims of the Kahramanmaraş earthquakes in Türkiye — raising <strong style="color:#f0f0f0;">$4,651 of a $7,500 goal</strong>. Designed and distributed a digital flyer and QR donation system to drive contributions. Partnered with Afet Platformu — a coalition of vetted local relief organisations — ensuring donations directly supported first responders and survivors' immediate needs including food, clean water, medicine, fuel, and shelter. Led outreach across school events, community engagement, and social media as part of the Turkish American Students of Okemos High School.</p>
             <div class="tl-tags">
-              <span>Humanitarian Relief</span><span>Fundraising</span><span>Community Outreach</span>
+              <span>$4,651 Raised</span><span>Fundraising</span><span>Flyer Design</span>
+              <span>QR Donation System</span><span>Community Outreach</span>
+              <span>Humanitarian Relief</span><span>Afet Platformu</span><span>TPF</span>
             </div>
+            <a href="https://donate.tpfund.org/team/481631" target="_blank" rel="noopener" class="tl-link">View Fundraiser Page →</a>
           </div>
         </div>
 
@@ -496,13 +494,96 @@
     </div>
   </section>
 
-  <!-- ═══ LANGUAGES ═══ -->
+  <!-- ═══ CERTIFICATIONS ═══ -->
   <section class="section">
+    <div class="container">
+      <p class="section-label reveal">Licenses &amp; Certifications</p>
+      <h2 class="section-heading reveal">Certifications</h2>
+      <div class="cert-grid">
+
+        <!-- WORLDDEF — zoom enabled -->
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap cert-zoomable">
+            <div class="cert-img-shield"></div>
+            <img src="worlddef-cert.jpg" alt="WORLDDEF Certificate of Recognition" class="cert-img" />
+            <div class="cert-zoom-overlay">
+              <button class="cert-zoom-btn" data-src="worlddef-cert.jpg" data-alt="WORLDDEF Certificate of Recognition">View Certificate ↗</button>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-badge">🏆 Certification</span>
+            <h3 class="cert-title">Certificate of Recognition</h3>
+            <p class="cert-issuer">WORLDDEF · Istanbul, Türkiye</p>
+            <p class="cert-date">Issued June 2026</p>
+            <div class="cert-tags">
+              <span>E-Commerce</span>
+              <span>Entrepreneurship</span>
+              <span>Networking</span>
+              <span>Innovation</span>
+              <span>Global Conference</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Whole Foods — zoom enabled -->
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap cert-zoomable">
+            <div class="cert-img-shield"></div>
+            <img src="wfm-cert.jpg" alt="Whole Foods Culture Champion Certificate" class="cert-img" />
+            <div class="cert-zoom-overlay">
+              <button class="cert-zoom-btn" data-src="wfm-cert.jpg" data-alt="Whole Foods Culture Champion Certificate">View Certificate ↗</button>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-badge">🏆 Certification</span>
+            <h3 class="cert-title">Certified Culture Champion</h3>
+            <p class="cert-issuer">Whole Foods Market</p>
+            <p class="cert-date">Issued November 2025</p>
+            <div class="cert-tags">
+              <span>Team Leadership</span>
+              <span>Leadership</span>
+              <span>Professional Mentoring</span>
+              <span>Culture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- American Red Cross — NO zoom -->
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap cert-no-img">
+            <div class="cert-no-img-inner">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="cert-arc-logo">
+                <circle cx="50" cy="50" r="50" fill="#fff"/>
+                <rect x="38" y="10" width="24" height="80" rx="4" fill="#ED1C24"/>
+                <rect x="10" y="38" width="80" height="24" rx="4" fill="#ED1C24"/>
+              </svg>
+              <span class="cert-no-img-label">American Red Cross</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-badge">🏆 Certification</span>
+            <h3 class="cert-title">Lifeguarding with CPR/AED for Professional Rescuers &amp; First Aid</h3>
+            <p class="cert-issuer">American Red Cross</p>
+            <p class="cert-date">Issued May 2021</p>
+            <div class="cert-tags">
+              <span>Lifeguarding</span>
+              <span>CPR / AED</span>
+              <span>First Aid</span>
+              <span>Emergency Response</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LANGUAGES ═══ -->
+  <section class="section section-alt">
     <div class="container">
       <p class="section-label reveal">Communication</p>
       <h2 class="section-heading reveal">Languages</h2>
       <div class="lang-grid reveal">
-
         <div class="lang-card">
           <div class="lang-flag-wrap">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 100" class="lang-flag-svg">
@@ -553,7 +634,6 @@
           <span class="lang-level">Native or Bilingual Proficiency</span>
           <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
-
         <div class="lang-card">
           <div class="lang-flag-wrap">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="lang-flag-svg">
@@ -567,17 +647,26 @@
           <span class="lang-level">Native or Bilingual Proficiency</span>
           <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ═══ HONORS & AWARDS ═══ -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <p class="section-label reveal">Achievements</p>
       <h2 class="section-heading reveal">Honors &amp; Awards</h2>
       <div class="honors-grid">
+
+        <div class="honor-card reveal">
+          <div class="honor-icon honor-icon-blue">🌍</div>
+          <div class="honor-body">
+            <p class="honor-title">Certificate of Recognition</p>
+            <p class="honor-issuer">WORLDDEF · Istanbul</p>
+            <p class="honor-date">June 2026</p>
+            <p class="honor-desc">Recognised for participation and engagement at WORLDDEF Istanbul 2026 — one of the world's leading global e-commerce and innovation gatherings.</p>
+          </div>
+        </div>
 
         <div class="honor-card reveal">
           <div class="honor-icon honor-icon-purple">📚</div>
@@ -624,22 +713,18 @@
   </section>
 
   <!-- ═══ ABOUT ═══ -->
-  <section id="about" class="section">
+  <section id="about" class="section section-alt">
     <div class="container">
       <div class="about-grid">
-
         <div class="about-photo-col reveal">
           <div class="about-photo-frame">
             <img src="photo.jpg" alt="Derin Coşguner" class="about-img" />
           </div>
         </div>
-
         <div class="about-text-col">
           <div class="accent-bar reveal"></div>
           <h2 class="section-heading reveal">About Me</h2>
-          <blockquote class="about-quote reveal">
-            "Driven by curiosity, continuous learning, and a desire to build practical solutions that genuinely improve people's lives."
-          </blockquote>
+          <blockquote class="about-quote reveal">"Driven by curiosity, continuous learning, and a desire to build practical solutions that genuinely improve people's lives."</blockquote>
           <p class="about-para reveal">I am a motivated and detail-oriented Mechanical Engineering student at Michigan State University (GPA 3.235) with a strong passion for product development, manufacturing, thermodynamics, and emerging technologies. I thrive at the intersection of rigorous engineering and human-centred design.</p>
           <p class="about-para reveal">As an R&amp;D Cooling Intern at BSH Home Appliances, I support refrigeration product development through engineering analysis, competitive benchmarking, design evaluation, and manufacturing-focused problem solving. This experience has deepened my understanding of how every engineering decision shapes product performance, cost, reliability, and the end customer's experience.</p>
           <p class="about-para reveal">Beyond engineering, I am passionate about entrepreneurship. As co-founder of GreenRoomeo, I built a student-focused housing platform from scratch to help university students navigate housing decisions with confidence. I believe the best solutions combine technical rigour with a genuine understanding of the people they serve.</p>
@@ -659,7 +744,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -774,7 +858,6 @@
         <p class="footer-copy">© 2025 Derin Coşguner. All rights reserved.</p>
         <a href="#home" class="footer-totop">Back to top ↑</a>
       </div>
-      <!-- DO NOT REMOVE — licence condition -->
       <div class="footer-powered">
         <span class="footer-powered-row">
           <span>© 2025 Derin Coşguner</span>
