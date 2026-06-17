@@ -58,11 +58,14 @@
     <div class="nav-inner">
       <a href="#home" class="nav-logo">DC</a>
       <div class="nav-links">
-        <a href="#expertise"  class="nav-link">Expertise</a>
-        <a href="#projects"   class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#about"      class="nav-link">About</a>
-        <a href="#contact"    class="nav-link">Contact</a>
+        <a href="#expertise"      class="nav-link">Expertise</a>
+        <a href="#projects"       class="nav-link">Projects</a>
+        <a href="#experience"     class="nav-link">Experience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#languages"   class="nav-link">Languages</a>
+        <a href="#achievements"      class="nav-link">Achievements</a>
+        <a href="#about"          class="nav-link">About</a>
+        <a href="#contact"        class="nav-link">Contact</a>
       </div>
       <div class="nav-right">
         <a href="mailto:dcosguner24@gmail.com" class="nav-cta">Hire Me</a>
@@ -76,11 +79,14 @@
   <!-- ═══ MOBILE MENU ═══ -->
   <div class="mobile-overlay" id="mobile-overlay">
     <div class="mobile-menu">
-      <a href="#expertise"  class="mobile-link">Expertise</a>
-      <a href="#projects"   class="mobile-link">Projects</a>
-      <a href="#experience" class="mobile-link">Experience</a>
-      <a href="#about"      class="mobile-link">About</a>
-      <a href="#contact"    class="mobile-link">Contact</a>
+      <a href="#expertise"      class="mobile-link">Expertise</a>
+      <a href="#projects"       class="mobile-link">Projects</a>
+      <a href="#experience"     class="mobile-link">Experience</a>
+      <a href="#certifications" class="mobile-link">Certifications</a>
+      <a href="#languages"   class="mobile-link">Languages</a>
+      <a href="#achievements"      class="mobile-link">Achievements</a>
+      <a href="#about"          class="mobile-link">About</a>
+      <a href="#contact"        class="mobile-link">Contact</a>
       <a href="mailto:dcosguner24@gmail.com" class="mobile-link mobile-cta-link">Hire Me</a>
     </div>
   </div>
@@ -495,13 +501,12 @@
   </section>
 
   <!-- ═══ CERTIFICATIONS ═══ -->
-  <section class="section">
+  <section id="certifications" class="section">
     <div class="container">
       <p class="section-label reveal">Licenses &amp; Certifications</p>
       <h2 class="section-heading reveal">Certifications</h2>
       <div class="cert-grid">
 
-        <!-- WORLDDEF — zoom enabled -->
         <div class="cert-card reveal">
           <div class="cert-img-wrap cert-zoomable">
             <div class="cert-img-shield"></div>
@@ -525,7 +530,6 @@
           </div>
         </div>
 
-        <!-- Whole Foods — zoom enabled -->
         <div class="cert-card reveal">
           <div class="cert-img-wrap cert-zoomable">
             <div class="cert-img-shield"></div>
@@ -548,7 +552,6 @@
           </div>
         </div>
 
-        <!-- American Red Cross — NO zoom -->
         <div class="cert-card reveal">
           <div class="cert-img-wrap cert-no-img">
             <div class="cert-no-img-inner">
@@ -579,7 +582,7 @@
   </section>
 
   <!-- ═══ LANGUAGES ═══ -->
-  <section class="section section-alt">
+  <section id="languages" class="section section-alt">
     <div class="container">
       <p class="section-label reveal">Communication</p>
       <h2 class="section-heading reveal">Languages</h2>
@@ -652,7 +655,7 @@
   </section>
 
   <!-- ═══ HONORS & AWARDS ═══ -->
-  <section class="section">
+  <section id="achievements" class="section">
     <div class="container">
       <p class="section-label reveal">Achievements</p>
       <h2 class="section-heading reveal">Honors &amp; Awards</h2>
@@ -716,11 +719,38 @@
   <section id="about" class="section section-alt">
     <div class="container">
       <div class="about-grid">
+
         <div class="about-photo-col reveal">
-          <div class="about-photo-frame">
-            <img src="photo.jpg" alt="Derin Coşguner" class="about-img" />
+          <div class="about-gallery">
+            <div class="ag-track">
+              <div class="ag-slide">
+                <img src="photo.jpg" alt="Derin at Anıtkabir, Ankara" class="ag-img" />
+                <div class="ag-caption">Anıtkabir · Ankara, Türkiye</div>
+              </div>
+              <div class="ag-slide">
+                <img src="photo-wfm.jpg" alt="Derin at Whole Foods Market" class="ag-img" />
+                <div class="ag-caption">Whole Foods Market · East Lansing, MI</div>
+              </div>
+              <div class="ag-slide">
+                <img src="photo-europa.jpg" alt="UEFA Europa League Final, Istanbul 2026" class="ag-img" />
+                <div class="ag-caption">UEFA Europa League Final · Istanbul, 2026</div>
+              </div>
+              <div class="ag-slide">
+                <img src="photo-worlddef.jpg" alt="WORLDDEF Istanbul 2026" class="ag-img" />
+                <div class="ag-caption">WORLDDEF · Istanbul, June 2026</div>
+              </div>
+            </div>
+            <button class="ag-btn ag-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="ag-btn ag-next" aria-label="Next photo">&#8250;</button>
+            <div class="ag-dots">
+              <button class="ag-dot active" aria-label="Photo 1"></button>
+              <button class="ag-dot"        aria-label="Photo 2"></button>
+              <button class="ag-dot"        aria-label="Photo 3"></button>
+              <button class="ag-dot"        aria-label="Photo 4"></button>
+            </div>
           </div>
         </div>
+
         <div class="about-text-col">
           <div class="accent-bar reveal"></div>
           <h2 class="section-heading reveal">About Me</h2>
@@ -744,6 +774,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -843,6 +874,9 @@
           <a href="#expertise">Expertise</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#languages">Languages</a>
+          <a href="#achievements">Achievements</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
