@@ -629,7 +629,8 @@ body::after {
   .pf-visual        { min-height: 220px; }
   .hstat-sep        { display: none; }
   .honors-grid      { grid-template-columns: 1fr; }
-  .about-gallery    { aspect-ratio: 4 / 3; max-width: 100%; }
+  .about-gallery    { aspect-ratio: 4 / 3; max-width: 100%; margin: 0 auto; }
+  .about-photo-col  { display: flex; flex-direction: column; align-items: center; }
 }
 @media (max-width: 640px) {
   .expertise-grid { grid-template-columns: 1fr; }
@@ -643,6 +644,5 @@ body::after {
   .hero-actions   { flex-direction: column; }
   .btn            { width: 100%; justify-content: center; }
   .ag-btn         { opacity: 1; }
-  .about-gallery  { aspect-ratio: 3 / 2; max-height: 260px; }
+  .about-gallery  { aspect-ratio: 3 / 2; max-height: 260px; margin: 0 auto; }
 }
-
