@@ -146,7 +146,6 @@ tlFilterBtns.forEach(function (btn) {
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeLightbox() {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
@@ -161,7 +160,6 @@ tlFilterBtns.forEach(function (btn) {
 
   lightboxOver.addEventListener('click', closeLightbox);
   lightboxClose.addEventListener('click', closeLightbox);
-
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeLightbox();
   });
@@ -170,21 +168,12 @@ tlFilterBtns.forEach(function (btn) {
 /* ── Image protection ── */
 (function () {
   document.querySelectorAll('img').forEach(function (img) {
-    img.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    });
-    img.addEventListener('dragstart', function (e) {
-      e.preventDefault();
-    });
+    img.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    img.addEventListener('dragstart',   function (e) { e.preventDefault(); });
   });
-
   document.addEventListener('keydown', function (e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-      e.preventDefault();
-    }
-    if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
-      e.preventDefault();
-    }
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); }
+    if ((e.ctrlKey || e.metaKey) && e.key === 'u') { e.preventDefault(); }
   });
 })();
 
@@ -252,4 +241,83 @@ tlFilterBtns.forEach(function (btn) {
     if (document.hidden) cancelAnimationFrame(rafId); else loop();
   });
   resize(); build(); loop();
+})();
+
+/* ── About photo gallery ── */
+(function () {
+  var gallery = document.querySelector('.about-gallery');
+  if (!gallery) return;
+
+  var track   = gallery.querySelector('.ag-track');
+  var slides  = gallery.querySelectorAll('.ag-slide');
+  var dots    = gallery.querySelectorAll('.ag-dot');
+  var prevBtn = gallery.querySelector('.ag-prev');
+  var nextBtn = gallery.querySelector('.ag-next');
+  var current   = 0;
+  var total     = slides.length;
+  var slideW    = 0;
+  var autoTimer = null;
+
+  function initWidths() {
+    slideW = gallery.offsetWidth;
+    slides.forEach(function (s) { s.style.width = slideW + 'px'; });
+  }
+
+  function goTo(idx, instant) {
+    current = ((idx % total) + total) % total;
+    if (instant) {
+      track.style.transition = 'none';
+      track.style.transform  = 'translateX(-' + (current * slideW) + 'px)';
+      void track.offsetHeight;
+      track.style.transition = '';
+    } else {
+      track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    }
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function () { goTo(current + 1); }, 5000);
+  }
+  function stopAuto() { clearInterval(autoTimer); }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () { stopAuto(); goTo(current - 1); startAuto(); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () { stopAuto(); goTo(current + 1); startAuto(); });
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
+  });
+
+  var touchStartX = 0;
+  gallery.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  gallery.addEventListener('touchend', function (e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { stopAuto(); goTo(current + (diff > 0 ? 1 : -1)); startAuto(); }
+  }, { passive: true });
+
+  gallery.addEventListener('mouseenter', stopAuto);
+  gallery.addEventListener('mouseleave', startAuto);
+
+  gallery.setAttribute('tabindex', '0');
+  gallery.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
+    if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
+  });
+
+  window.addEventListener('resize', function () {
+    initWidths(); goTo(current, true);
+  }, { passive: true });
+
+  initWidths();
+  goTo(0, true);
+  startAuto();
 })();
