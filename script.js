@@ -64,7 +64,6 @@ filterBtns.forEach(function (btn) {
     filterBtns.forEach(function (b) { b.classList.remove('active'); });
     btn.classList.add('active');
     var filter = btn.dataset.filter;
-
     featuredProjs.forEach(function (proj) {
       var show = (filter === 'all' || filter === proj.dataset.category);
       if (show) {
@@ -77,7 +76,6 @@ filterBtns.forEach(function (btn) {
         setTimeout(function () { proj.style.display = 'none'; }, 300);
       }
     });
-
     projectCards.forEach(function (card) {
       var show = (filter === 'all' || filter === card.dataset.category);
       if (show) {
@@ -295,6 +293,7 @@ tlFilterBtns.forEach(function (btn) {
     dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
   });
 
+  /* Touch / swipe */
   var touchStartX = 0;
   gallery.addEventListener('touchstart', function (e) {
     touchStartX = e.touches[0].clientX;
@@ -304,19 +303,50 @@ tlFilterBtns.forEach(function (btn) {
     if (Math.abs(diff) > 40) { stopAuto(); goTo(current + (diff > 0 ? 1 : -1)); startAuto(); }
   }, { passive: true });
 
+  /* Pause on hover */
   gallery.addEventListener('mouseenter', stopAuto);
   gallery.addEventListener('mouseleave', startAuto);
 
+  /* Keyboard */
   gallery.setAttribute('tabindex', '0');
   gallery.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
   });
 
+  /* Resize */
   window.addEventListener('resize', function () {
     initWidths(); goTo(current, true);
   }, { passive: true });
 
+  /* ── Tap / click a slide to open lightbox ── */
+  var glBox    = document.getElementById('cert-lightbox');
+  var glBoxImg = document.getElementById('cert-lightbox-img');
+  var glClose  = document.getElementById('cert-lightbox-close');
+  var glOverlay= document.getElementById('cert-lightbox-overlay');
+
+  slides.forEach(function (slide) {
+    slide.addEventListener('click', function (e) {
+      /* Ignore clicks on arrow buttons or dots */
+      if (e.target.closest('.ag-btn') || e.target.closest('.ag-dots')) return;
+      var img = slide.querySelector('.ag-img');
+      if (!img || !glBox) return;
+      glBoxImg.src = img.src;
+      glBoxImg.alt = img.alt || 'Photo';
+      glBox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      stopAuto();
+    });
+  });
+
+  /* Resume auto-play when lightbox closes */
+  function resumeOnClose() {
+    if (!glBox.classList.contains('open')) startAuto();
+  }
+  if (glClose)   glClose.addEventListener('click',   resumeOnClose);
+  if (glOverlay) glOverlay.addEventListener('click', resumeOnClose);
+
+  /* Init */
   initWidths();
   goTo(0, true);
   startAuto();
