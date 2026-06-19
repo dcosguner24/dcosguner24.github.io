@@ -257,7 +257,7 @@ tlFilterBtns.forEach(function (btn) {
   var autoTimer = null;
 
   function initWidths() {
-    slideW = gallery.offsetWidth;
+    slideW = gallery.clientWidth;
     slides.forEach(function (s) { s.style.width = slideW + 'px'; });
   }
 
