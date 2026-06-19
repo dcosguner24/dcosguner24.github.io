@@ -293,7 +293,6 @@ tlFilterBtns.forEach(function (btn) {
     dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
   });
 
-  /* Touch / swipe */
   var touchStartX = 0;
   gallery.addEventListener('touchstart', function (e) {
     touchStartX = e.touches[0].clientX;
@@ -303,23 +302,19 @@ tlFilterBtns.forEach(function (btn) {
     if (Math.abs(diff) > 40) { stopAuto(); goTo(current + (diff > 0 ? 1 : -1)); startAuto(); }
   }, { passive: true });
 
-  /* Pause on hover */
   gallery.addEventListener('mouseenter', stopAuto);
   gallery.addEventListener('mouseleave', startAuto);
 
-  /* Keyboard */
   gallery.setAttribute('tabindex', '0');
   gallery.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
   });
 
-  /* Resize */
   window.addEventListener('resize', function () {
     initWidths(); goTo(current, true);
   }, { passive: true });
 
-  /* ── Tap / click a slide to open lightbox ── */
   var glBox    = document.getElementById('cert-lightbox');
   var glBoxImg = document.getElementById('cert-lightbox-img');
   var glClose  = document.getElementById('cert-lightbox-close');
@@ -327,7 +322,6 @@ tlFilterBtns.forEach(function (btn) {
 
   slides.forEach(function (slide) {
     slide.addEventListener('click', function (e) {
-      /* Ignore clicks on arrow buttons or dots */
       if (e.target.closest('.ag-btn') || e.target.closest('.ag-dots')) return;
       var img = slide.querySelector('.ag-img');
       if (!img || !glBox) return;
@@ -339,15 +333,61 @@ tlFilterBtns.forEach(function (btn) {
     });
   });
 
-  /* Resume auto-play when lightbox closes */
   function resumeOnClose() {
     if (!glBox.classList.contains('open')) startAuto();
   }
   if (glClose)   glClose.addEventListener('click',   resumeOnClose);
   if (glOverlay) glOverlay.addEventListener('click', resumeOnClose);
 
-  /* Init */
   initWidths();
   goTo(0, true);
   startAuto();
+})();
+
+/* ── Gallery ── */
+(function () {
+
+  /* Program tab switching */
+  var progTabs = document.querySelectorAll('.prog-tab');
+  var galCards = document.querySelectorAll('.gal-card');
+
+  progTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      progTabs.forEach(function (t) { t.classList.remove('prog-tab-active'); });
+      tab.classList.add('prog-tab-active');
+      var prog = tab.dataset.progTab;
+      galCards.forEach(function (card) {
+        var show = (prog === 'all' || card.dataset.prog === prog);
+        if (show) {
+          card.style.display = 'block';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { card.style.opacity = '1'; });
+          });
+        } else {
+          card.style.opacity = '0';
+          setTimeout(function () { card.style.display = 'none'; }, 300);
+        }
+      });
+    });
+  });
+
+  /* View button — reuses the existing cert-lightbox */
+  document.querySelectorAll('.gal-view-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.gal-card');
+      var img  = card ? card.querySelector('.gal-img') : null;
+      var src  = img ? img.src : btn.dataset.src;
+      var alt  = btn.dataset.alt;
+      if (!src) return;
+      var lb    = document.getElementById('cert-lightbox');
+      var lbImg = document.getElementById('cert-lightbox-img');
+      if (!lb || !lbImg) return;
+      lbImg.src = src;
+      lbImg.alt = alt || 'Gallery Image';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+
 })();
