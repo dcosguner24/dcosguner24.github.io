@@ -315,10 +315,10 @@ tlFilterBtns.forEach(function (btn) {
     initWidths(); goTo(current, true);
   }, { passive: true });
 
-  var glBox    = document.getElementById('cert-lightbox');
-  var glBoxImg = document.getElementById('cert-lightbox-img');
-  var glClose  = document.getElementById('cert-lightbox-close');
-  var glOverlay= document.getElementById('cert-lightbox-overlay');
+  var glBox     = document.getElementById('cert-lightbox');
+  var glBoxImg  = document.getElementById('cert-lightbox-img');
+  var glClose   = document.getElementById('cert-lightbox-close');
+  var glOverlay = document.getElementById('cert-lightbox-overlay');
 
   slides.forEach(function (slide) {
     slide.addEventListener('click', function (e) {
@@ -347,7 +347,6 @@ tlFilterBtns.forEach(function (btn) {
 /* ── Gallery ── */
 (function () {
 
-  /* Program tab switching */
   var progTabs = document.querySelectorAll('.prog-tab');
   var galCards = document.querySelectorAll('.gal-card');
 
@@ -388,6 +387,5 @@ tlFilterBtns.forEach(function (btn) {
       document.body.style.overflow = 'hidden';
     });
   });
-
 
 })();
