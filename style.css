@@ -590,4 +590,12 @@ body::after {
   .btn            { width: 100%; justify-content: center; }
   .ag-btn         { opacity: 1; }
   .about-gallery  { aspect-ratio: 3 / 2; max-height: 260px; margin: 0 auto; }
+
+  /* ── Experience section reorder (mobile only) ── */
+  #experience .container       { display: flex; flex-direction: column; }
+  #experience .section-label   { order: 1; }
+  #experience .section-heading { order: 2; }
+  #experience .exp-stats       { order: 3; }
+  #experience .tl-filters      { order: 4; }
+  #experience .timeline        { order: 5; }
 }
